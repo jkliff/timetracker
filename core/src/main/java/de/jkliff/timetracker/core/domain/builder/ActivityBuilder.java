@@ -11,6 +11,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import de.jkliff.timetracker.core.model.Activity;
 import de.jkliff.timetracker.core.model.ActivityTag;
 import de.jkliff.timetracker.core.service.exception.InvalidActivityException;
+import de.jkliff.timetracker.util.ParseUtils;
 
 public class ActivityBuilder {
 	private String group;
@@ -48,8 +49,8 @@ public class ActivityBuilder {
 	}
 
 	public ActivityBuilder finishedAt(String d) throws ParseException {
-		SimpleDateFormat sdf = getDateParser();
-		activity.setEnd(sdf.parse(d));
+
+		activity.setEnd(ParseUtils.parseDate(d));
 
 		return this;
 	}
@@ -69,14 +70,9 @@ public class ActivityBuilder {
 	}
 
 	public ActivityBuilder startedAt(String d) throws ParseException {
-		SimpleDateFormat sdf = getDateParser();
-		activity.setStart(sdf.parse(d));
-		return this;
-	}
 
-	private SimpleDateFormat getDateParser() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-DD HH:MM");
-		return sdf;
+		activity.setStart(ParseUtils.parseDate(d));
+		return this;
 	}
 
 	public ActivityBuilder inProgress() {
@@ -87,7 +83,7 @@ public class ActivityBuilder {
 
 	public static ActivityBuilder fromActivity(Activity a1)
 			throws InvalidActivityException {
-		return new ActivityBuilder (a1);
+		return new ActivityBuilder(a1);
 	}
 
 	/**

@@ -48,7 +48,7 @@ public class SimpleFlowITest extends TestCase {
 
 			Assert.assertNotNull(a1);
 			Assert.assertEquals(A1_NAME, a1.getName());
-			
+
 			Activity a1Copy = ActivityBuilder.fromActivity(a1).startedAt(date1)
 					.inProgress().build();
 
@@ -57,7 +57,7 @@ public class SimpleFlowITest extends TestCase {
 
 			System.out.println(id1);
 			System.out.println(id2);
-			
+
 			Activity a1Loaded = activityService.load(id1);
 			Assert.assertNotNull(a1Loaded);
 			Assert.assertEquals(A1_NAME, a1Loaded.getName());
@@ -65,10 +65,21 @@ public class SimpleFlowITest extends TestCase {
 			// TODO: check that a1Loaded is ok
 
 			List<ActivitySummary> activitySummaries = activityService
-					.list(QueryBuilder.findActivities(10)
+					.list(QueryBuilder.findActivities().limit(10)
 							.from("2011-10-11 13:00").to("2011-10-12 12:00")
 							.taggedWith("work").build());
-
+			Assert.assertNotNull(activitySummaries);
+			Assert.assertEquals(0, activitySummaries.size());
+			
+			
+			activitySummaries = activityService
+					.list(QueryBuilder.findActivities().limit(10)
+							.from("2011-10-10 09:00").to("2011-10-10 15:00")
+							.taggedWith("work").build());
+			
+			Assert.assertNotNull(activitySummaries);
+			Assert.assertFalse(activitySummaries.size() > 0);
+			
 			Activity a1CopyLoaded = activityService.load(id2);
 
 			a1CopyLoaded.setEnd(new Date());

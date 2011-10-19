@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.jkliff.timetracker.core.model.Activity;
+import de.jkliff.timetracker.core.persistence.ActivitySummaryDAO;
 import de.jkliff.timetracker.core.persistence.impl.ActivityDAO;
 import de.jkliff.timetracker.core.service.ActivityService;
 import de.jkliff.timetracker.core.service.dto.ActivitySummary;
@@ -16,6 +17,8 @@ import de.jkliff.timetracker.core.service.query.ActivityQuery;
 public class ActivityServiceImpl implements ActivityService {
 	@Autowired
 	private ActivityDAO activityDAO;
+	@Autowired
+	private ActivitySummaryDAO activitySummaryDAO;
 
 	@Override
 	@Transactional
@@ -30,9 +33,8 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
-	public List<ActivitySummary> list(ActivityQuery build) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ActivitySummary> list(ActivityQuery query) {
+		return activitySummaryDAO.find (query.toHql());
 	}
 
 }
