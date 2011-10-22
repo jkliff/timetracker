@@ -4,7 +4,7 @@ import java.util.List;
 
 import de.jkliff.timetracker.core.model.Activity;
 import de.jkliff.timetracker.core.service.dto.ActivitySummary;
-import de.jkliff.timetracker.core.service.query.ActivityQuery;
+import de.jkliff.timetracker.core.service.query.ActivitySummaryQuery;
 
 public interface ActivityService {
 
@@ -12,6 +12,8 @@ public interface ActivityService {
 
 	Activity load(long id1);
 
-	List<ActivitySummary> list(ActivityQuery build);
+	List<ActivitySummary> list(ActivitySummaryQuery build);
 
+	void delete (long id);
+	
 }

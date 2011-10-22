@@ -10,8 +10,9 @@ import de.jkliff.timetracker.core.model.Activity;
 import de.jkliff.timetracker.core.persistence.ActivitySummaryDAO;
 import de.jkliff.timetracker.core.persistence.impl.ActivityDAO;
 import de.jkliff.timetracker.core.service.ActivityService;
+import de.jkliff.timetracker.core.service.builder.QueryBuilder;
 import de.jkliff.timetracker.core.service.dto.ActivitySummary;
-import de.jkliff.timetracker.core.service.query.ActivityQuery;
+import de.jkliff.timetracker.core.service.query.ActivitySummaryQuery;
 
 @Service("ActivityService")
 public class ActivityServiceImpl implements ActivityService {
@@ -33,8 +34,23 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
-	public List<ActivitySummary> list(ActivityQuery query) {
-		return activitySummaryDAO.find (query.toHql());
+	public List<ActivitySummary> list(final ActivitySummaryQuery query) {
+		List<ActivitySummary> r;
+
+		if (query == null) {
+			r = activitySummaryDAO.find(QueryBuilder.findActivitySummaries()
+					.build().toHql());
+		} else {
+
+			r = activitySummaryDAO.find(query.toHql());
+		}
+		return r;
+	}
+
+	@Override
+	public void delete(long id) {
+		Activity a = activityDAO.load(Activity.class, id);
+		activityDAO.delete(a);
 	}
 
 }

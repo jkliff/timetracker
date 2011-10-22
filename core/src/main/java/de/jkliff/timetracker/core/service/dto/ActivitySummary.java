@@ -5,6 +5,7 @@ import java.util.Date;
 import de.jkliff.timetracker.core.model.SummaryEntity;
 
 public class ActivitySummary extends SummaryEntity {
+	private Long id;
 	private String name;
 	private Date start;
 	private Date end;
@@ -31,5 +32,13 @@ public class ActivitySummary extends SummaryEntity {
 
 	public void setEnd(Date end) {
 		this.end = end;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
