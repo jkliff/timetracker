@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd"
 	default-autowire="byName">
 	<context:annotation-config />
-	<context:component-scan base-package="de.jkliff.timetracker.core" />
+	<context:component-scan base-package="de.jkliff.timetracker" />
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="jpaVendorAdapter">

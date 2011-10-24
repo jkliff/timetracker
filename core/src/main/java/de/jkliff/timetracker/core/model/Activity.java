@@ -35,7 +35,7 @@ public class Activity implements PersistentEntity {
 	private String name;
 
 	@ManyToMany
-	@LazyCollection(LazyCollectionOption.TRUE)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private Set<ActivityTag> tags;
 
 	public Date getStart() {
