@@ -1,0 +1,7 @@
+build:
+
+mvn clean package -U
+
+run:
+
+java -jar target/core-....jar
