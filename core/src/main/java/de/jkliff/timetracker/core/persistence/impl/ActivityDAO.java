@@ -8,6 +8,9 @@ import de.jkliff.timetracker.core.persistence.AbstractEntityDAOImpl;
 @Repository
 public class ActivityDAO extends AbstractEntityDAOImpl<Activity> {
 
-
+	@Override
+	protected Class<Activity> getEntityClass() {
+		return Activity.class;
+	}
 
 }

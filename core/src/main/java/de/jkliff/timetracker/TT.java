@@ -19,11 +19,7 @@ public class TT {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ApplicationContext springContext = new ClassPathXmlApplicationContext(
-				new String[] { "classpath:context.xml" });
-
-		ApplicationContextSingleton.initialize (springContext);
-		
+				
 		TimeTrackerConfiguration conf;
 		try {
 			conf = TimeTrackerConfiguration.from("tt.conf");
@@ -35,6 +31,13 @@ public class TT {
 			conf = TimeTrackerConfiguration.defaultFallbackConfiguration();
 		}
 
+		ApplicationContext springContext = new ClassPathXmlApplicationContext(
+				new String[] { "classpath:context.xml" });
+
+		ApplicationContextSingleton.initialize (springContext);
+
+		
+		
 		GrizzlyWebServer webServer = new GrizzlyWebServer(conf.getBindPort());
 
 		ServletAdapter jerseyAdapter = new ServletAdapter();

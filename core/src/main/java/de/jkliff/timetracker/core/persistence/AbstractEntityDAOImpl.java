@@ -11,8 +11,9 @@ import de.jkliff.timetracker.core.service.dto.ActivitySummary;
 
 public abstract class AbstractEntityDAOImpl<T extends PersistentEntity> extends
 		AbstractRawDAO implements SimpleDAO<T> {
-	
 
+	protected abstract Class<T> getEntityClass ();
+	
 	@Override
 	public T load(Class<T> c, long id1) {
 		return getEntityManager().find(c, id1);
@@ -20,7 +21,7 @@ public abstract class AbstractEntityDAOImpl<T extends PersistentEntity> extends
 
 	@Override
 	public List<T> list() {
-		// TODO Auto-generated method stub
+		//T find = getEntityManager().crefind (getEntityClass(), null);
 		return null;
 	}
 
@@ -49,8 +50,7 @@ public abstract class AbstractEntityDAOImpl<T extends PersistentEntity> extends
 
 	@Override
 	public void delete(T t) {
-		// TODO Auto-generated method stub
-
+		getEntityManager().remove(t);
 	}
 
 }

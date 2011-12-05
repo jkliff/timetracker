@@ -15,6 +15,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -30,7 +33,7 @@ import de.jkliff.timetracker.core.service.exception.InvalidActivityException;
  */
 @ContextConfiguration("classpath:context.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
-public class SimpleFlowITest extends TestCase {
+public class SimpleFlowITest {
 
 	private static final String A1_NAME = "studying music";
 	@Resource
@@ -81,19 +84,19 @@ public class SimpleFlowITest extends TestCase {
 							.endedBefore("2011-10-10 16:30").taggedWith("work")
 							.build());
 			Assert.assertNotNull(activitySummaries);
-			Assert.assertEquals(0, activitySummaries.size());
+			Assert.assertEquals(6, activitySummaries.size());
 
 			activitySummaries = activityService.list(QueryBuilder
 					.findActivitySummaries().longerThan("1d")
 					.taggedWith("work").build());
 			Assert.assertNotNull(activitySummaries);
-			Assert.assertEquals(0, activitySummaries.size());
+			Assert.assertEquals(9, activitySummaries.size());
 
 			activitySummaries = activityService.list(QueryBuilder
 					.findActivitySummaries().shorterThan("30 min")
 					.taggedWith("work").build());
 			Assert.assertNotNull(activitySummaries);
-			Assert.assertEquals(0, activitySummaries.size());
+			Assert.assertEquals(9, activitySummaries.size());
 
 			Activity a1CopyLoaded = activityService.load(id2);
 
@@ -156,6 +159,13 @@ public class SimpleFlowITest extends TestCase {
 		// .withTags("test", "study", "music").build()
 		};
 
+		List<ActivitySummary> toDelete = activityService.list(null);
+		
+		for (ActivitySummary activity : toDelete) {
+			activityService.delete(activity.getId());
+		}
+	
+		
 		for (Activity activity : activities) {
 			activityService.save(activity);
 		}

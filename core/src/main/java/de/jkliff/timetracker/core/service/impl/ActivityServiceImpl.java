@@ -48,6 +48,7 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
+	@Transactional
 	public void delete(long id) {
 		Activity a = activityDAO.load(Activity.class, id);
 		activityDAO.delete(a);
