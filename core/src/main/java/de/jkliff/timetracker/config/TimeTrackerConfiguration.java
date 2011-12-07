@@ -12,34 +12,34 @@ public class TimeTrackerConfiguration {
 
     private int bindPort = 8080;
 
-    public static TimeTrackerConfiguration from(String f)
+    public static TimeTrackerConfiguration from (String f)
             throws InvalidConfigurationException {
 
-        Gson g = new Gson();
+        Gson g = new Gson ();
         try {
-            return g.fromJson(new FileReader(new File(f)), TimeTrackerConfiguration.class);
+            return g.fromJson (new FileReader (new File (f)), TimeTrackerConfiguration.class);
         } catch (JsonSyntaxException e) {
-            throw new InvalidConfigurationException("Syntax error.", e);
+            throw new InvalidConfigurationException ("Syntax error.", e);
 
         } catch (JsonIOException e) {
-            throw new InvalidConfigurationException("Gson error.", e);
+            throw new InvalidConfigurationException ("Gson error.", e);
 
         } catch (FileNotFoundException e) {
-            throw new InvalidConfigurationException("No such configuration file.", e);
+            throw new InvalidConfigurationException ("No such configuration file.", e);
         }
     }
 
-    public int getBindPort() {
+    public int getBindPort () {
         return bindPort;
     }
 
-    private void setBindPort(int bindPort) {
+    private void setBindPort (int bindPort) {
         this.bindPort = bindPort;
     }
 
-    public static TimeTrackerConfiguration defaultFallbackConfiguration() {
-        TimeTrackerConfiguration ttc = new TimeTrackerConfiguration();
-        ttc.setBindPort(8080);
+    public static TimeTrackerConfiguration defaultFallbackConfiguration () {
+        TimeTrackerConfiguration ttc = new TimeTrackerConfiguration ();
+        ttc.setBindPort (8080);
 
         return ttc;
     }

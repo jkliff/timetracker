@@ -39,49 +39,49 @@ public class Activity
     @LazyCollection(LazyCollectionOption.FALSE)
     private Set<ActivityTag> tags;
 
-    public Date getStart() {
+    public Date getStart () {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart (Date start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public Date getEnd () {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd (Date end) {
         this.end = end;
     }
 
-    public String getName() {
+    public String getName () {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName (String name) {
         this.name = name;
     }
 
-    public Set<ActivityTag> getTags() {
+    public Set<ActivityTag> getTags () {
         return tags;
     }
 
-    public void setTags(Set<ActivityTag> tags) {
+    public void setTags (Set<ActivityTag> tags) {
         this.tags = tags;
     }
 
-    public Long getId() {
+    public Long getId () {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId (Long id) {
         this.id = id;
     }
 
     @Override
-    public Long getPersistentId() {
-        return this.getId();
+    public Long getPersistentId () {
+        return this.getId ();
     }
 
 }

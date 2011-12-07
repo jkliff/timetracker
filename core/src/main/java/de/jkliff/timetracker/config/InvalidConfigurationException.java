@@ -4,7 +4,7 @@ public class InvalidConfigurationException
         extends Exception {
 
     public InvalidConfigurationException(String msg, Throwable e) {
-        super(msg, e);
+        super (msg, e);
     }
 
 }

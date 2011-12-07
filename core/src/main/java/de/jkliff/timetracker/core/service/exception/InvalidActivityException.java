@@ -4,7 +4,7 @@ public class InvalidActivityException
         extends Exception {
 
     public InvalidActivityException(Exception e) {
-        super(e);
+        super (e);
     }
 
 }

@@ -15,76 +15,76 @@ import de.jkliff.timetracker.util.ParseUtils;
 public class ActivityBuilder {
     private String      group;
     private Activity    activity;
-    private Set<String> tags = new HashSet<String>();
+    private Set<String> tags = new HashSet<String> ();
 
     public ActivityBuilder(String group) {
-        this.activity = new Activity();
+        this.activity = new Activity ();
         this.group = group;
     }
 
     public ActivityBuilder(Activity a1) throws InvalidActivityException {
         try {
-            this.activity = (Activity) BeanUtils.cloneBean(a1);
+            this.activity = (Activity) BeanUtils.cloneBean (a1);
         } catch (Exception e) {
-            throw new InvalidActivityException(e);
+            throw new InvalidActivityException (e);
         }
     }
 
-    public Activity build() {
+    public Activity build () {
 
-        activity.setTags(buildTags(tags));
+        activity.setTags (buildTags (tags));
 
         return activity;
     }
 
-    private Set<ActivityTag> buildTags(Set<String> tags2) {
+    private Set<ActivityTag> buildTags (Set<String> tags2) {
         // TODO Auto-generated method stub
         return null;
     }
 
-    public ActivityBuilder startedAt(Date date1) {
+    public ActivityBuilder startedAt (Date date1) {
         // TODO Auto-generated method stub
         return this;
     }
 
-    public ActivityBuilder finishedAt(String d)
+    public ActivityBuilder finishedAt (String d)
             throws ParseException {
 
-        activity.setEnd(ParseUtils.parseDate(d));
+        activity.setEnd (ParseUtils.parseDate (d));
 
         return this;
     }
 
-    public ActivityBuilder named(String n) {
-        activity.setName(n);
+    public ActivityBuilder named (String n) {
+        activity.setName (n);
         return this;
     }
 
-    public ActivityBuilder withTags(String... tags) {
+    public ActivityBuilder withTags (String... tags) {
         for (String t : tags) {
-            this.tags.add(t);
+            this.tags.add (t);
         }
 
         return this;
 
     }
 
-    public ActivityBuilder startedAt(String d)
+    public ActivityBuilder startedAt (String d)
             throws ParseException {
 
-        activity.setStart(ParseUtils.parseDate(d));
+        activity.setStart (ParseUtils.parseDate (d));
         return this;
     }
 
-    public ActivityBuilder inProgress() {
-        activity.setEnd(null);
+    public ActivityBuilder inProgress () {
+        activity.setEnd (null);
         return this;
 
     }
 
-    public static ActivityBuilder fromActivity(Activity a1)
+    public static ActivityBuilder fromActivity (Activity a1)
             throws InvalidActivityException {
-        return new ActivityBuilder(a1);
+        return new ActivityBuilder (a1);
     }
 
     /**
@@ -94,8 +94,8 @@ public class ActivityBuilder {
      * @param string
      * @return
      */
-    public static ActivityBuilder forGroup(String group) {
-        return new ActivityBuilder(group);
+    public static ActivityBuilder forGroup (String group) {
+        return new ActivityBuilder (group);
     }
 
 }

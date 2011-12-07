@@ -9,11 +9,11 @@ public class AbstractRawDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-    protected EntityManager getEntityManager() {
+    protected EntityManager getEntityManager () {
         return entityManager;
     }
 
-    protected HibernateEntityManager getDelegate() {
-        return (HibernateEntityManager) entityManager.getDelegate();
+    protected HibernateEntityManager getDelegate () {
+        return (HibernateEntityManager) entityManager.getDelegate ();
     }
 }

@@ -11,7 +11,7 @@ public class ActivityDAO
         extends AbstractEntityDAOImpl<Activity> {
 
     @Override
-    protected Class<Activity> getEntityClass() {
+    protected Class<Activity> getEntityClass () {
         return Activity.class;
     }
 

@@ -24,34 +24,34 @@ public class ActivityServiceImpl
 
     @Override
     @Transactional
-    public long save(Activity a1) {
-        activityDAO.save(a1);
-        return a1.getId();
+    public long save (Activity a1) {
+        activityDAO.save (a1);
+        return a1.getId ();
     }
 
     @Override
-    public Activity load(long id1) {
-        return activityDAO.load(Activity.class, id1);
+    public Activity load (long id1) {
+        return activityDAO.load (Activity.class, id1);
     }
 
     @Override
-    public List<ActivitySummary> list(final ActivitySummaryQuery query) {
+    public List<ActivitySummary> list (final ActivitySummaryQuery query) {
         List<ActivitySummary> r;
 
         if (query == null) {
-            r = activitySummaryDAO.find(QueryBuilder.findActivitySummaries().build().toHql());
+            r = activitySummaryDAO.find (QueryBuilder.findActivitySummaries ().build ().toHql ());
         } else {
 
-            r = activitySummaryDAO.find(query.toHql());
+            r = activitySummaryDAO.find (query.toHql ());
         }
         return r;
     }
 
     @Override
     @Transactional
-    public void delete(long id) {
-        Activity a = activityDAO.load(Activity.class, id);
-        activityDAO.delete(a);
+    public void delete (long id) {
+        Activity a = activityDAO.load (Activity.class, id);
+        activityDAO.delete (a);
     }
 
 }

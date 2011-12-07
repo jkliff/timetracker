@@ -23,82 +23,82 @@ public class ActivitySummaryQuery
     private Duration minDuration;
 
     @Override
-    public Pair<String, Map<String, Object>> toHql() {
+    public Pair<String, Map<String, Object>> toHql () {
 
-        List<String> clausules = new ArrayList<String>();
-        Map<String, Object> params = new HashMap<String, Object>();
+        List<String> clausules = new ArrayList<String> ();
+        Map<String, Object> params = new HashMap<String, Object> ();
 
         if (startedBefore != null) {
-            clausules.add("a.start <= :maxStart");
-            params.put("maxStart", startedBefore);
+            clausules.add ("a.start <= :maxStart");
+            params.put ("maxStart", startedBefore);
         }
         if (startedAfter != null) {
-            clausules.add("a.start >= :minStart");
-            params.put("minStart", startedAfter);
+            clausules.add ("a.start >= :minStart");
+            params.put ("minStart", startedAfter);
         }
 
         if (endedBefore != null) {
-            clausules.add("a.end <= :maxEnd");
-            params.put("maxEnd", endedBefore);
+            clausules.add ("a.end <= :maxEnd");
+            params.put ("maxEnd", endedBefore);
         }
 
         if (endedAfter != null) {
-            clausules.add("a.end >= :minEnd");
-            params.put("minEnd", endedAfter);
+            clausules.add ("a.end >= :minEnd");
+            params.put ("minEnd", endedAfter);
         }
 
-        Pair<String, Map<String, Object>> pair = Pair.of(
-                String.format("select a.id, a.name, a.start, a.end from Activity a %s",
-                        clausules.isEmpty() ? "" : ("where " + Joiner.on(" and ").join(clausules))), params);
+        Pair<String, Map<String, Object>> pair = Pair.of (
+                String.format ("select a.id, a.name, a.start, a.end from Activity a %s",
+                        clausules.isEmpty () ? "" : ("where " + Joiner.on (" and ").join (clausules))), params);
 
         return pair;
     }
 
-    public Date getStartedBefore() {
+    public Date getStartedBefore () {
         return startedBefore;
     }
 
-    public void setStartedBefore(Date startedBefore) {
+    public void setStartedBefore (Date startedBefore) {
         this.startedBefore = startedBefore;
     }
 
-    public Date getStartedAfter() {
+    public Date getStartedAfter () {
         return startedAfter;
     }
 
-    public void setStartedAfter(Date startedAfter) {
+    public void setStartedAfter (Date startedAfter) {
         this.startedAfter = startedAfter;
     }
 
-    public Date getEndedBefore() {
+    public Date getEndedBefore () {
         return endedBefore;
     }
 
-    public void setEndedBefore(Date endedBefore) {
+    public void setEndedBefore (Date endedBefore) {
         this.endedBefore = endedBefore;
     }
 
-    public Date getEndedAfter() {
+    public Date getEndedAfter () {
         return endedAfter;
     }
 
-    public void setEndedAfter(Date endedAfter) {
+    public void setEndedAfter (Date endedAfter) {
         this.endedAfter = endedAfter;
     }
 
-    public Duration getMaxDuration() {
+    public Duration getMaxDuration () {
         return maxDuration;
     }
 
-    public void setMaxDuration(Duration maxDuration) {
+    public void setMaxDuration (Duration maxDuration) {
         this.maxDuration = maxDuration;
     }
 
-    public Duration getMinDuration() {
+    public Duration getMinDuration () {
         return minDuration;
     }
 
-    public void setMinDuration(Duration minDuration) {
+    public void setMinDuration (Duration minDuration) {
         this.minDuration = minDuration;
     }
 
