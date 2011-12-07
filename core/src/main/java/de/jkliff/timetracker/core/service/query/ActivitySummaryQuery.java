@@ -47,9 +47,9 @@ public class ActivitySummaryQuery
             params.put("minEnd", endedAfter);
         }
 
-        Pair<String, Map<String, Object>> pair = Pair.of(String.format(
-                "select a.id, a.name, a.start, a.end from Activity a %s", clausules.isEmpty() ? "" : ("where " + Joiner
-                        .on(" and ").join(clausules))), params);
+        Pair<String, Map<String, Object>> pair = Pair.of(
+                String.format("select a.id, a.name, a.start, a.end from Activity a %s",
+                        clausules.isEmpty() ? "" : ("where " + Joiner.on(" and ").join(clausules))), params);
 
         return pair;
     }

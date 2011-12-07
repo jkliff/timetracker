@@ -40,8 +40,7 @@ public class TT {
         GrizzlyWebServer webServer = new GrizzlyWebServer(conf.getBindPort());
 
         ServletAdapter jerseyAdapter = new ServletAdapter();
-        jerseyAdapter
-                .addInitParameter("com.sun.jersey.config.property.packages", "de.jkliff.timetracker.rest.resource");
+        jerseyAdapter.addInitParameter("com.sun.jersey.config.property.packages", "de.jkliff.timetracker.rest.resource");
         jerseyAdapter.setContextPath("/");
         jerseyAdapter.setServletInstance(new ServletContainer());
 

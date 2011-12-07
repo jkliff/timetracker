@@ -22,8 +22,8 @@ public class ActivityResource {
     public static final String BEAN_ID         = "ActivityResource";
 
     // @Autowired
-    private ActivityService    activityService = (ActivityService) ApplicationContextSingleton.getApplicationContext()
-                                                       .getBean(ActivityService.BEAN_ID);
+    private ActivityService    activityService = (ActivityService) ApplicationContextSingleton.getApplicationContext().getBean(
+                                                       ActivityService.BEAN_ID);
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
