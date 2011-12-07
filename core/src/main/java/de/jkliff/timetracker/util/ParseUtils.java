@@ -5,13 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ParseUtils {
-    private static SimpleDateFormat getDateParser() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-DD HH:MM");
+    private static SimpleDateFormat getDateParser () {
+        SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-mm-DD HH:MM");
         return sdf;
     }
 
-    public static Date parseDate(String s)
+    public static Date parseDate (String s)
             throws ParseException {
-        return getDateParser().parse(s);
+        return getDateParser ().parse (s);
     }
 }

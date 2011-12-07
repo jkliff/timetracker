@@ -12,8 +12,8 @@ import de.jkliff.timetracker.util.Pair;
 public class ActivitySummaryDAO
         extends AbstractSummaryDAOImpl<ActivitySummary> {
 
-    public List<ActivitySummary> find(final Pair<String, Map<String, Object>> hqlWithParams) {
-        List<ActivitySummary> l = super.find(hqlWithParams, AbstractSummaryMapper.getInstance());
+    public List<ActivitySummary> find (final Pair<String, Map<String, Object>> hqlWithParams) {
+        List<ActivitySummary> l = super.find (hqlWithParams, AbstractSummaryMapper.getInstance ());
 
         return l;
     }

@@ -10,12 +10,12 @@ public class ApplicationContextSingleton {
 
     }
 
-    public static void initialize(ApplicationContext springContext) {
+    public static void initialize (ApplicationContext springContext) {
         applicationContext = springContext;
 
     }
 
-    public static ApplicationContext getApplicationContext() {
+    public static ApplicationContext getApplicationContext () {
         return applicationContext;
     }
 

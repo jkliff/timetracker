@@ -13,49 +13,49 @@ public class ActivitySumamryQueryBuilder {
         this.query = query;
     }
 
-    public ActivitySummaryQuery build() {
+    public ActivitySummaryQuery build () {
         return this.query;
     }
 
-    public ActivitySumamryQueryBuilder taggedWith(String string) {
+    public ActivitySumamryQueryBuilder taggedWith (String string) {
 
         return this;
     }
 
-    public static ActivitySumamryQueryBuilder createNewQuery() {
-        return new ActivitySumamryQueryBuilder(new ActivitySummaryQuery());
+    public static ActivitySumamryQueryBuilder createNewQuery () {
+        return new ActivitySumamryQueryBuilder (new ActivitySummaryQuery ());
     }
 
-    public ActivitySumamryQueryBuilder startedBefore(String string)
+    public ActivitySumamryQueryBuilder startedBefore (String string)
             throws ParseException {
-        this.query.setStartedBefore(ParseUtils.parseDate(string));
+        this.query.setStartedBefore (ParseUtils.parseDate (string));
         return this;
     }
 
-    public ActivitySumamryQueryBuilder endedAfter(String string)
+    public ActivitySumamryQueryBuilder endedAfter (String string)
             throws ParseException {
-        this.query.setEndedAfter(ParseUtils.parseDate(string));
+        this.query.setEndedAfter (ParseUtils.parseDate (string));
         return this;
     }
 
-    public ActivitySumamryQueryBuilder startedAfter(String string)
+    public ActivitySumamryQueryBuilder startedAfter (String string)
             throws ParseException {
-        this.query.setStartedAfter(ParseUtils.parseDate(string));
+        this.query.setStartedAfter (ParseUtils.parseDate (string));
         return this;
     }
 
-    public ActivitySumamryQueryBuilder endedBefore(String string)
+    public ActivitySumamryQueryBuilder endedBefore (String string)
             throws ParseException {
-        this.query.setEndedBefore(ParseUtils.parseDate(string));
+        this.query.setEndedBefore (ParseUtils.parseDate (string));
         return this;
     }
 
-    public ActivitySumamryQueryBuilder longerThan(String string) {
+    public ActivitySumamryQueryBuilder longerThan (String string) {
         // TODO Auto-generated method stub
         return this;
     }
 
-    public ActivitySumamryQueryBuilder shorterThan(String string) {
+    public ActivitySumamryQueryBuilder shorterThan (String string) {
         // TODO Auto-generated method stub
         return this;
     }
