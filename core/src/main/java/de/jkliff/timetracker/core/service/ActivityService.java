@@ -8,14 +8,14 @@ import de.jkliff.timetracker.core.service.query.ActivitySummaryQuery;
 
 public interface ActivityService {
 
-	String BEAN_ID = "ActivityService";
+    String BEAN_ID = "ActivityService";
 
-	long save(Activity a1);
+    long save(Activity a1);
 
-	Activity load(long id1);
+    Activity load(long id1);
 
-	List<ActivitySummary> list(ActivitySummaryQuery build);
+    List<ActivitySummary> list(ActivitySummaryQuery build);
 
-	void delete(long id);
+    void delete(long id);
 
 }

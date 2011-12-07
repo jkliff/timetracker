@@ -4,19 +4,19 @@ import de.jkliff.timetracker.core.service.dto.ActivitySummary;
 
 public class AbstractSummaryMapper implements RowMapper<ActivitySummary> {
 
-	private static AbstractSummaryMapper instance = new AbstractSummaryMapper();
+    private static AbstractSummaryMapper instance = new AbstractSummaryMapper();
 
-	@Override
-	public ActivitySummary mapRow(Object[] o) {
-		ActivitySummary a = new ActivitySummary();
+    @Override
+    public ActivitySummary mapRow(Object[] o) {
+        ActivitySummary a = new ActivitySummary();
 
-		a.setId((Long) o[0]);
+        a.setId((Long) o[0]);
 
-		return a;
-	}
+        return a;
+    }
 
-	public static RowMapper<ActivitySummary> getInstance() {
-		return instance;
-	}
+    public static RowMapper<ActivitySummary> getInstance() {
+        return instance;
+    }
 
 }

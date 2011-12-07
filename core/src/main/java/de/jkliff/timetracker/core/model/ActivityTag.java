@@ -10,25 +10,25 @@ import org.hibernate.annotations.GenerationTime;
 @Entity
 @Table(name = "activity_tag")
 public class ActivityTag {
-	@Id
-	@Generated(GenerationTime.INSERT)
-	private Long id;
+    @Id
+    @Generated(GenerationTime.INSERT)
+    private Long   id;
 
-	private String name;
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

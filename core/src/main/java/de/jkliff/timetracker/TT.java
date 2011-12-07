@@ -2,6 +2,7 @@ package de.jkliff.timetracker;
 
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,46 +16,43 @@ import de.jkliff.timetracker.util.ApplicationContextSingleton;
 
 public class TT {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-				
-		TimeTrackerConfiguration conf;
-		try {
-			conf = TimeTrackerConfiguration.from("tt.conf");
-		} catch (InvalidConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("Trying with default configuration...");
+    private static final Logger LOG = Logger.getLogger(TT.class);
 
-			conf = TimeTrackerConfiguration.defaultFallbackConfiguration();
-		}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		ApplicationContext springContext = new ClassPathXmlApplicationContext(
-				new String[] { "classpath:context.xml" });
+        TimeTrackerConfiguration conf;
+        try {
+            conf = TimeTrackerConfiguration.from("tt.conf");
+        } catch (InvalidConfigurationException e) {
+            LOG.debug("Excepotion loading configuration.", e);
+            LOG.warn("Trying with default configuration...");
 
-		ApplicationContextSingleton.initialize (springContext);
+            conf = TimeTrackerConfiguration.defaultFallbackConfiguration();
+        }
 
-		
-		
-		GrizzlyWebServer webServer = new GrizzlyWebServer(conf.getBindPort());
+        ApplicationContext springContext = new ClassPathXmlApplicationContext(new String[] { "classpath:context.xml" });
 
-		ServletAdapter jerseyAdapter = new ServletAdapter();
-		jerseyAdapter.addInitParameter(
-				"com.sun.jersey.config.property.packages",
-				"de.jkliff.timetracker.rest.resource");
-		jerseyAdapter.setContextPath("/");
-		jerseyAdapter.setServletInstance(new ServletContainer());
+        ApplicationContextSingleton.initialize(springContext);
 
-		webServer.addGrizzlyAdapter(jerseyAdapter, new String[] { "/" });
+        GrizzlyWebServer webServer = new GrizzlyWebServer(conf.getBindPort());
 
-		try {
-			System.out.println("starting server...");
-			webServer.start();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+        ServletAdapter jerseyAdapter = new ServletAdapter();
+        jerseyAdapter
+                .addInitParameter("com.sun.jersey.config.property.packages", "de.jkliff.timetracker.rest.resource");
+        jerseyAdapter.setContextPath("/");
+        jerseyAdapter.setServletInstance(new ServletContainer());
+
+        webServer.addGrizzlyAdapter(jerseyAdapter, new String[] { "/" });
+
+        try {
+            System.out.println("starting server...");
+            webServer.start();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }

@@ -7,56 +7,52 @@ import de.jkliff.timetracker.util.ParseUtils;
 
 public class ActivitySumamryQueryBuilder {
 
-	private ActivitySummaryQuery query;
+    private ActivitySummaryQuery query;
 
-	private ActivitySumamryQueryBuilder(ActivitySummaryQuery query) {
-		this.query = query;
-	}
+    private ActivitySumamryQueryBuilder(ActivitySummaryQuery query) {
+        this.query = query;
+    }
 
-	public ActivitySummaryQuery build() {
-		return this.query;
-	}
+    public ActivitySummaryQuery build() {
+        return this.query;
+    }
 
-	public ActivitySumamryQueryBuilder taggedWith(String string) {
+    public ActivitySumamryQueryBuilder taggedWith(String string) {
 
-		return this;
-	}
+        return this;
+    }
 
-	public static ActivitySumamryQueryBuilder createNewQuery() {
-		return new ActivitySumamryQueryBuilder(new ActivitySummaryQuery());
-	}
+    public static ActivitySumamryQueryBuilder createNewQuery() {
+        return new ActivitySumamryQueryBuilder(new ActivitySummaryQuery());
+    }
 
-	public ActivitySumamryQueryBuilder startedBefore(String string)
-			throws ParseException {
-		this.query.setStartedBefore(ParseUtils.parseDate(string));
-		return this;
-	}
+    public ActivitySumamryQueryBuilder startedBefore(String string) throws ParseException {
+        this.query.setStartedBefore(ParseUtils.parseDate(string));
+        return this;
+    }
 
-	public ActivitySumamryQueryBuilder endedAfter(String string)
-			throws ParseException {
-		this.query.setEndedAfter(ParseUtils.parseDate(string));
-		return this;
-	}
+    public ActivitySumamryQueryBuilder endedAfter(String string) throws ParseException {
+        this.query.setEndedAfter(ParseUtils.parseDate(string));
+        return this;
+    }
 
-	public ActivitySumamryQueryBuilder startedAfter(String string)
-			throws ParseException {
-		this.query.setStartedAfter(ParseUtils.parseDate(string));
-		return this;
-	}
+    public ActivitySumamryQueryBuilder startedAfter(String string) throws ParseException {
+        this.query.setStartedAfter(ParseUtils.parseDate(string));
+        return this;
+    }
 
-	public ActivitySumamryQueryBuilder endedBefore(String string)
-			throws ParseException {
-		this.query.setEndedBefore(ParseUtils.parseDate(string));
-		return this;
-	}
+    public ActivitySumamryQueryBuilder endedBefore(String string) throws ParseException {
+        this.query.setEndedBefore(ParseUtils.parseDate(string));
+        return this;
+    }
 
-	public ActivitySumamryQueryBuilder longerThan(String string) {
-		// TODO Auto-generated method stub
-		return this;
-	}
+    public ActivitySumamryQueryBuilder longerThan(String string) {
+        // TODO Auto-generated method stub
+        return this;
+    }
 
-	public ActivitySumamryQueryBuilder shorterThan(String string) {
-		// TODO Auto-generated method stub
-		return this;
-	}
+    public ActivitySumamryQueryBuilder shorterThan(String string) {
+        // TODO Auto-generated method stub
+        return this;
+    }
 }
