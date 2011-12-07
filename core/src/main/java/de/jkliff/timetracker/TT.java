@@ -47,11 +47,10 @@ public class TT {
         webServer.addGrizzlyAdapter(jerseyAdapter, new String[] { "/" });
 
         try {
-            System.out.println("starting server...");
+            LOG.warn("Starting server...");
             webServer.start();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            LOG.error("Failed to start web server.", e);
         }
     }
 }
