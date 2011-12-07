@@ -9,7 +9,8 @@ public class Pair<P, Q> {
         second = q;
     }
 
-    public static <P, Q> Pair<P, Q> of(P p, Q q) {
+    public static <P, Q> Pair<P, Q> of(P p,
+                                       Q q) {
         return new Pair<P, Q>(p, q);
     }
 

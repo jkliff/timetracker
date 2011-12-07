@@ -2,7 +2,8 @@ package de.jkliff.timetracker.core.persistence;
 
 import de.jkliff.timetracker.core.service.dto.ActivitySummary;
 
-public class AbstractSummaryMapper implements RowMapper<ActivitySummary> {
+public class AbstractSummaryMapper
+        implements RowMapper<ActivitySummary> {
 
     private static AbstractSummaryMapper instance = new AbstractSummaryMapper();
 

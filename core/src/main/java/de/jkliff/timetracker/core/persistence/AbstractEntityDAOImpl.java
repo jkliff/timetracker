@@ -4,12 +4,15 @@ import java.util.List;
 
 import de.jkliff.timetracker.core.persistence.model.PersistentEntity;
 
-public abstract class AbstractEntityDAOImpl<T extends PersistentEntity> extends AbstractRawDAO implements SimpleDAO<T> {
+public abstract class AbstractEntityDAOImpl<T extends PersistentEntity>
+        extends AbstractRawDAO
+        implements SimpleDAO<T> {
 
     protected abstract Class<T> getEntityClass();
 
     @Override
-    public T load(Class<T> c, long id1) {
+    public T load(Class<T> c,
+                  long id1) {
         return getEntityManager().find(c, id1);
     }
 
@@ -20,7 +23,8 @@ public abstract class AbstractEntityDAOImpl<T extends PersistentEntity> extends 
     }
 
     @Override
-    public List<T> list(int limit, int offset) {
+    public List<T> list(int limit,
+                        int offset) {
         // TODO Auto-generated method stub
         return null;
     }

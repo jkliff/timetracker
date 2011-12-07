@@ -35,7 +35,8 @@ public class SimpleFlowITest {
     private ActivityService     activityService;
 
     @Test
-    public void testSimpleFlow() throws ParseException {
+    public void testSimpleFlow()
+            throws ParseException {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-DD HH:MM");
             Date date1 = sdf.parse("2011-10-13 13:00");
@@ -97,7 +98,8 @@ public class SimpleFlowITest {
     }
 
     @Before
-    public void saveTestData() throws ParseException {
+    public void saveTestData()
+            throws ParseException {
 
         Activity[] activities = new Activity[] {
                 ActivityBuilder.forGroup("default").startedAt("2011-10-10 13:00").finishedAt("2011-10-10 13:30")

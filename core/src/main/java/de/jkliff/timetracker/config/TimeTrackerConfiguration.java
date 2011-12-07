@@ -12,7 +12,8 @@ public class TimeTrackerConfiguration {
 
     private int bindPort = 8080;
 
-    public static TimeTrackerConfiguration from(String f) throws InvalidConfigurationException {
+    public static TimeTrackerConfiguration from(String f)
+            throws InvalidConfigurationException {
 
         Gson g = new Gson();
         try {

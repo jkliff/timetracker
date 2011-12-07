@@ -6,7 +6,8 @@ public interface SimpleDAO<T> {
 
     List<T> list();
 
-    List<T> list(int limit, int offset);
+    List<T> list(int limit,
+                 int offset);
 
     long save(T t);
 
@@ -14,5 +15,6 @@ public interface SimpleDAO<T> {
 
     void delete(T t);
 
-    T load(Class<T> c, long id1);
+    T load(Class<T> c,
+           long id1);
 }

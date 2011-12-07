@@ -4,7 +4,8 @@ import java.util.Date;
 
 import de.jkliff.timetracker.core.model.SummaryEntity;
 
-public class ActivitySummary extends SummaryEntity {
+public class ActivitySummary
+        extends SummaryEntity {
     private Long   id;
     private String name;
     private Date   start;

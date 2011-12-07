@@ -47,7 +47,8 @@ public class ActivityBuilder {
         return this;
     }
 
-    public ActivityBuilder finishedAt(String d) throws ParseException {
+    public ActivityBuilder finishedAt(String d)
+            throws ParseException {
 
         activity.setEnd(ParseUtils.parseDate(d));
 
@@ -68,7 +69,8 @@ public class ActivityBuilder {
 
     }
 
-    public ActivityBuilder startedAt(String d) throws ParseException {
+    public ActivityBuilder startedAt(String d)
+            throws ParseException {
 
         activity.setStart(ParseUtils.parseDate(d));
         return this;
@@ -80,7 +82,8 @@ public class ActivityBuilder {
 
     }
 
-    public static ActivityBuilder fromActivity(Activity a1) throws InvalidActivityException {
+    public static ActivityBuilder fromActivity(Activity a1)
+            throws InvalidActivityException {
         return new ActivityBuilder(a1);
     }
 

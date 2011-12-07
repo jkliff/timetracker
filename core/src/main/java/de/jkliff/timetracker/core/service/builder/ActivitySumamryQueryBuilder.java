@@ -26,22 +26,26 @@ public class ActivitySumamryQueryBuilder {
         return new ActivitySumamryQueryBuilder(new ActivitySummaryQuery());
     }
 
-    public ActivitySumamryQueryBuilder startedBefore(String string) throws ParseException {
+    public ActivitySumamryQueryBuilder startedBefore(String string)
+            throws ParseException {
         this.query.setStartedBefore(ParseUtils.parseDate(string));
         return this;
     }
 
-    public ActivitySumamryQueryBuilder endedAfter(String string) throws ParseException {
+    public ActivitySumamryQueryBuilder endedAfter(String string)
+            throws ParseException {
         this.query.setEndedAfter(ParseUtils.parseDate(string));
         return this;
     }
 
-    public ActivitySumamryQueryBuilder startedAfter(String string) throws ParseException {
+    public ActivitySumamryQueryBuilder startedAfter(String string)
+            throws ParseException {
         this.query.setStartedAfter(ParseUtils.parseDate(string));
         return this;
     }
 
-    public ActivitySumamryQueryBuilder endedBefore(String string) throws ParseException {
+    public ActivitySumamryQueryBuilder endedBefore(String string)
+            throws ParseException {
         this.query.setEndedBefore(ParseUtils.parseDate(string));
         return this;
     }

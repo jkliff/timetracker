@@ -6,7 +6,9 @@ import de.jkliff.timetracker.core.model.Activity;
 import de.jkliff.timetracker.core.persistence.AbstractEntityDAOImpl;
 
 @Repository
-public class ActivityDAO extends AbstractEntityDAOImpl<Activity> {
+public class ActivityDAO
+
+        extends AbstractEntityDAOImpl<Activity> {
 
     @Override
     protected Class<Activity> getEntityClass() {

@@ -15,7 +15,8 @@ import de.jkliff.timetracker.core.service.dto.ActivitySummary;
 import de.jkliff.timetracker.core.service.query.ActivitySummaryQuery;
 
 @Service(ActivityService.BEAN_ID)
-public class ActivityServiceImpl implements ActivityService {
+public class ActivityServiceImpl
+        implements ActivityService {
     @Autowired
     private ActivityDAO        activityDAO;
     @Autowired

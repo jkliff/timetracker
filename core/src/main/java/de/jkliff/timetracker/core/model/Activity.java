@@ -20,7 +20,8 @@ import de.jkliff.timetracker.core.persistence.model.PersistentEntity;
 
 @Entity
 @Table(name = "activity")
-public class Activity implements PersistentEntity {
+public class Activity
+        implements PersistentEntity {
 
     @Id
     @Generated(GenerationTime.INSERT)

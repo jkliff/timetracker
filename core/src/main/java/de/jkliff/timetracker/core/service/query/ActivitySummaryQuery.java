@@ -12,7 +12,8 @@ import com.google.common.base.Joiner;
 
 import de.jkliff.timetracker.util.Pair;
 
-public class ActivitySummaryQuery extends HibernateQuery {
+public class ActivitySummaryQuery
+        extends HibernateQuery {
 
     private Date     startedBefore;
     private Date     startedAfter;

@@ -10,7 +10,8 @@ public class ParseUtils {
         return sdf;
     }
 
-    public static Date parseDate(String s) throws ParseException {
+    public static Date parseDate(String s)
+            throws ParseException {
         return getDateParser().parse(s);
     }
 }
