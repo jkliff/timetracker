@@ -13,5 +13,4 @@ public class ServerStatusResource
     public String getStatus () {
         return GSON.toJson ("tudo ok");
     }
-
 }

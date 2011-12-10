@@ -3,7 +3,7 @@
 import yaml
 import os.path
 from argparse import ArgumentParser
-import urllib2
+import httplib2
 import re
 
 sanitize_url = lambda x: 'http://' + re.sub ('\/+', '/', re.sub ('(http://)(.*)', '\g<2>', x))
@@ -11,13 +11,13 @@ sanitize_url = lambda x: 'http://' + re.sub ('\/+', '/', re.sub ('(http://)(.*)'
 def generate_action (action_path, http_method):
     """generates a function capable of submitting rest requests to the server"""
     def f (config, msg):
-        r = ()
         host = config ['server_base_url']
         v = '%s/%s' % (host, action_path) 
         v = sanitize_url (v)
-        req = urllib2.urlopen (v)
-
-        return r
+        http = httplib2.Http ()
+        response, content = http.request (v, http_method, body = None)
+        print content
+        return content
     return f
 
 ACTIONS = {

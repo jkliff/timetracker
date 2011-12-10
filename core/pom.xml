@@ -144,6 +144,9 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>1.4</version>
                 <executions>
+                    <!-- Both spring 3 and Jersey are whineys when the classes 
+                        are packaged in a single runnable jar. Here I thank the clever folks from 
+                        shade plugin for the automagic AppendingTransformer ;-) -->
                     <execution>
                         <phase>package</phase>
                         <goals>
@@ -152,12 +155,12 @@
                         <configuration>
                             <transformers>
                                 <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>org.example.Runner</mainClass>
+                                    implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.handlers</resource>
                                 </transformer>
                                 <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                                    <resource>META-INF/spring.handlers</resource>
+                                    <resource>META-INF/services/javax.ws.rs.ext.MessageBodyWriter</resource>
                                 </transformer>
                                 <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
