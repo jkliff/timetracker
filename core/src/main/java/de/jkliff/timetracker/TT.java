@@ -16,7 +16,8 @@ import de.jkliff.timetracker.util.ApplicationContextSingleton;
 
 public class TT {
 
-    private static final Logger LOG = Logger.getLogger (TT.class);
+    public static final String  JERSEY_BASE_RESOURCE_PACKAGE = "de.jkliff.timetracker.rest.resource";
+    private static final Logger LOG                          = Logger.getLogger (TT.class);
 
     /**
      * @param args
@@ -40,7 +41,7 @@ public class TT {
         GrizzlyWebServer webServer = new GrizzlyWebServer (conf.getBindPort ());
 
         ServletAdapter jerseyAdapter = new ServletAdapter ();
-        jerseyAdapter.addInitParameter ("com.sun.jersey.config.property.packages", "de.jkliff.timetracker.rest.resource");
+        jerseyAdapter.addInitParameter ("com.sun.jersey.config.property.packages", JERSEY_BASE_RESOURCE_PACKAGE);
         jerseyAdapter.setContextPath ("/");
         jerseyAdapter.setServletInstance (new ServletContainer ());
 
