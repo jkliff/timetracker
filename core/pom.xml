@@ -7,7 +7,6 @@
     <version>0.1-SNAPSHOT</version>
     <properties>
         <hibernate.version>3.5.4-Final</hibernate.version>
-        <!-- spring.version>3.0.6.RELEASE</spring.version -->
         <spring.version>3.1.0.RC1</spring.version>
     </properties>
     <name>core</name>
@@ -119,7 +118,12 @@
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-server</artifactId>
-            <version>1.9.1</version>
+            <version>1.11-b04</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>1.11-b04</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
@@ -163,7 +167,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
         </plugins>
     </build>
 </project>
