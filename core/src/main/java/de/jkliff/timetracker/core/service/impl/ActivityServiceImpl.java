@@ -54,4 +54,10 @@ public class ActivityServiceImpl
         activityDAO.delete (a);
     }
 
+    @Override
+    public void closeLast () {
+        // TODO Auto-generated method stub
+        
+    }
+
 }

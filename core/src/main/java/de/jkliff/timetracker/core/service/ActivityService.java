@@ -18,4 +18,6 @@ public interface ActivityService {
 
     void delete (long id);
 
+    void closeLast ();
+
 }

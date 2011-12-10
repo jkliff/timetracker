@@ -18,7 +18,9 @@ import de.jkliff.timetracker.util.ApplicationContextSingleton;
 
 //@Component(ActivityResource.BEAN_ID)
 @Path("/")
-public class ActivityResource {
+public class ActivityResource extends AbstractBaseResource{
+    
+
     public static final String BEAN_ID         = "ActivityResource";
 
     // @Autowired
@@ -32,7 +34,7 @@ public class ActivityResource {
         System.out.println ("attending request for " + id);
 
         if (id != null) {
-            return new Gson ().toJson (activityService.load (id), Activity.class);
+            return GSON.toJson (activityService.load (id), Activity.class);
         }
 
         return null;
@@ -45,7 +47,7 @@ public class ActivityResource {
     public String save (MultivaluedMap<String, String> params) {
         // System.out.println("save " + activityJson);
         System.out.println ("save " + params);
-        Activity a = new Gson ().fromJson (params.getFirst ("activity"), Activity.class);
+        Activity a = GSON.fromJson (params.getFirst ("activity"), Activity.class);
         Object r = null;
 
         if (a.getId () != null) {
@@ -54,7 +56,7 @@ public class ActivityResource {
 
         r = activityService.save (a);
 
-        return new Gson ().toJson (r, Long.class);
+        return GSON.toJson (r, Long.class);
 
     }
 
@@ -63,9 +65,9 @@ public class ActivityResource {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Path("/activity/update")
     public String update (MultivaluedMap<String, String> params) {
-        // System.out.println("save " + activityJson);
+
         System.out.println ("update " + params);
-        Activity a = new Gson ().fromJson (params.getFirst ("activity"), Activity.class);
+        Activity a = GSON.fromJson (params.getFirst ("activity"), Activity.class);
 
         if (a.getId () == null) {
             throw new IllegalArgumentException ("Activity update needs to have an Id.");
@@ -75,7 +77,18 @@ public class ActivityResource {
 
         r = activityService.save (a);
 
-        return new Gson ().toJson (r, Long.class);
+        return GSON.toJson (r, Long.class);
 
     }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Path("/activity/last/close")
+    public String closeLast () {
+        activityService.closeLast ();
+
+        return "ok";
+    }
+
 }
