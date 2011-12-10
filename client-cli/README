@@ -1,2 +1,3 @@
-Client depends on pyyaml (http://pyyaml.org/)
-    macos: available in ports as py27-yaml
+Client depends on:
+- pyyaml (http://pyyaml.org/) - macos: available in ports as py27-yaml
+- httplib2 (http://code.google.com/p/httplib2/) - macos: available in ports as py27-httplib2
