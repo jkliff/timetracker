@@ -1,0 +1,2 @@
+Client depends on pyyaml (http://pyyaml.org/)
+    macos: available in ports as py27-yaml
